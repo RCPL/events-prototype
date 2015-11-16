@@ -1,3 +1,3 @@
 Meteor.publish('events', function() {
-  return Events.find({}, {limit:3});
+  return Events.find({},{limit:50});
 });
