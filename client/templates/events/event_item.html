@@ -1,5 +1,10 @@
 <template name="eventItem">
-  <div class="event">
-    <h3><time>{{prettyTime}}</time> {{title}} <small class="tag {{prettyLibrary}}">{{prettyLibrary}}</small></h3> 
-  </div>
+  <time>
+    <span class="time--start">{{time}}</span>
+    <small>– <span class="time--end">{{endtime}}</span></small>
+  </time>
+
+  <span class="tag {{prettyLibrary}}">{{prettyLibrary}}</span>
+
+  <h3>{{title}}</h3>
 </template>

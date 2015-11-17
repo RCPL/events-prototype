@@ -1,11 +1,41 @@
+
+
 header{
   background-color:aliceblue;
 }
 
+body{
+  font-size:18px;
+}
+
+.events .row:nth-child(even){
+  background-color: #e2edf0;
+}
+
+.events .row time .time--start{
+  display:inline-block;
+  width: 4.5em;
+  text-align: right;
+}
+
+.events .row time{
+  float:left;
+  width:10em;
+  font-size:130%;
+}
+
 .tag{
-  padding:0.1em 0.3em;
+  float:left;
+  background-color:black;
+  margin:0.35em;
+  padding:0.05em 0.3em;
   color:white;
+  font-size:80%;
   border-radius:0.1em;
+}
+
+.events .row h3{
+  font-size:160%;
 }
 
 .ballentine{ background-color: #f84747; }
