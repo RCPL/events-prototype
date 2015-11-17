@@ -1,0 +1,10 @@
+<template name="dayItem">
+  <h2>{{prettyDate}}</h2>
+  <div class="events">
+    {{#each events}}
+      <article>
+        {{> eventItem}}
+      </article>
+    {{/each}}
+  </div>
+</template>
