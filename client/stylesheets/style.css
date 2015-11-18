@@ -5,9 +5,9 @@ header{
 body{
   font-family: Helvetica, 'Lato', sans-serif;
   font-size:18px;
-/*  background-color: #A5D9EA;*/
   background-color:white;
-  background-image:url(http://www.richlandlibrary.com/sites/all/themes/rcpl/img/noise.png);
+  background-color:#A5D9EA;
+  background-image:url(noise.png);
 }
 
 .events .row{
