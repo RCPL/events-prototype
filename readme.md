@@ -8,7 +8,7 @@ See also: https://www.meteor.com/install
 ## Running
     cd events-prototype
     meteor
-    # open your browser to localhost:3000/eventsList
+    # open your browser to localhost:3000
     
 ## Resetting the Database
     meteor reset && meteor
