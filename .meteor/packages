@@ -18,6 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 insecure                # Allow all DB writes from clients (for prototyping)
 
-chuikoff:bootstrap-4    # Twitter Bootstrap 4 Alpha
 iron:router
 sacha:spin
+bootstrap

@@ -1,10 +1,27 @@
 <template name="eventItem">
-  <time>
-    <span class="time--start">{{time}}</span>
-    <small>– <span class="time--end">{{endtime}}</span></small>
-  </time>
+  <div class="times span2">
+    <p>
+      <time class="time--start">{{time}}</time>
+      <br>
+      <time class="time--end">til {{endtime}}</time>
+    </p>
+  </div>
 
-  <span class="tag {{prettyLibrary}}">{{prettyLibrary}}</span>
+  <!--
+  <div class="library span1">
+    <span class="tag {{prettyLibrary}}">{{prettyLibrary}}</span>
+  </div>-->
 
-  <h3>{{title}}</h3>
+  <div class="content span7">
+    <h3><a href="{{pathFor 'postPage'}}">{{title}}</a></h3>
+    <p class="description">{{description}}</p>
+    <p class="details">
+      <span class="tag {{prettyLibrary}}">{{prettyLibrary}}</span>
+      {{location}}
+    </p>
+  </div>
+  
+  <div class="image span3">
+    <img src="{{imagepath}}">
+  </div>
 </template>

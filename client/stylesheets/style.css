@@ -1,42 +1,59 @@
-
-
 header{
   background-color:aliceblue;
 }
 
 body{
+  font-family: Helvetica, 'Lato', sans-serif;
   font-size:18px;
+/*  background-color: #A5D9EA;*/
+  background-color:white;
+  background-image:url(http://www.richlandlibrary.com/sites/all/themes/rcpl/img/noise.png);
+}
+
+.events .row{
+  padding:1em 0;
 }
 
 .events .row:nth-child(even){
-  background-color: #e2edf0;
+  background-color: rgba(131, 131, 131, 0.08);
 }
 
-.events .row time .time--start{
-  display:inline-block;
-  width: 4.5em;
-  text-align: right;
+.events .row .times{
+  padding-top: 0.5em;
+  text-align:right;
+}
+.events .row time{ font-size:200%; }
+.events .row .time--start{ font-weight:600; }
+.events .row .time--end{ font-weight:200; font-size:125%;  }
+
+.events .row .library{
+  padding-top: 0.2em;
 }
 
-.events .row time{
-  float:left;
-  width:10em;
-  font-size:130%;
+.events .row .details{
+  font-size:80%;
+  color:#333;
 }
 
 .tag{
-  float:left;
+  display:inline-block;
   background-color:black;
-  margin:0.35em;
   padding:0.05em 0.3em;
   color:white;
-  font-size:80%;
-  border-radius:0.1em;
+  border-radius:0.2em;
 }
 
 .events .row h3{
-  font-size:160%;
+  margin-top:0;
+  font-size:200%;
+  font-weight:600;
 }
+
+.events .row .content p{
+  font-size:12pt;
+}
+
+
 
 .ballentine{ background-color: #f84747; }
 .blythewood{ background-color: #14c7bd; }
