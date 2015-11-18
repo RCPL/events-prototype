@@ -4,14 +4,16 @@ function updateTime(){
   var meridianEl = window.document.getElementById('currentTimeMeridian');
   var now = new Date();
   var hours = now.getHours();
+  var minutes = now.getMinutes();
   var meridian = 'AM';
   if(hours === 0){ hours = 12; }
   if(hours > 12){
     hours -= 12;
     meridian = 'PM';
   }
-  hoursEl.innerHTML = now.getHours() % 12;
-  minutesEl.innerHTML = now.getMinutes();
+  if(minutes < 10){ minutes = '0' + minutes; }
+  hoursEl.innerHTML = hours;
+  minutesEl.innerHTML = minutes;
   meridianEl.innerHTML = meridian;
 }
 
