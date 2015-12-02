@@ -2,6 +2,10 @@ Template.filter.helpers({
 	value:function(){
 		return this.display_value || this.value;
 	},
+	checked:function(){
+		if(this.checked == 'checked') return 'checked';
+		else return '';
+	},
 	count:function(){
 		var filters = Session.get('filters') || {};
 		if(this.value === undefined){

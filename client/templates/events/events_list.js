@@ -14,7 +14,7 @@ Template.eventsList.helpers({
 });
 
 Template.eventsList.events({
-	"click .filters a": function(event){
+	"click .filters label": function(event){
 		event.preventDefault();
 
 //		$(this).parent('ul').children('li').removeClass('active');
