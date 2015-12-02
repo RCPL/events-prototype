@@ -8,9 +8,9 @@ Template.filter.helpers({
 		return false;
 	},
 	count:function(){
-//		var thisFilter = 
-//		var type = Session.get('type');
-//		return Events.find().count();
-		return 5;
+		var filters = Session.get('filters') || {};
+		filters[this.kind] = this.value;
+		return Events.find(filters).count();
+//		return (filters !== undefined);
 	}
 });

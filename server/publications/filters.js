@@ -1,11 +1,11 @@
 Meteor.publish('categories', function() {
-	return Filters.find({kind:'category'});
+	return Filters.find({kind:'eventtypes'});
 });
 
 Meteor.publish('locations', function() {
-	return Filters.find({kind:'location'});
+	return Filters.find({kind:'library'});
 });
 
 Meteor.publish('ages', function() {
-	return Filters.find({kind:'age'});
+	return Filters.find({kind:'agegroups'});
 });

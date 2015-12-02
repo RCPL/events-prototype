@@ -1,4 +1,4 @@
-if (Filters.find({kind:'location'}).count() === 0) {
+if (Filters.find({kind:'library'}).count() === 0) {
 	var list = [
 		{value:"Richland Library - All Locations", display_value:"All Locations"},
 		{value:"Richland Library  Eastover", display_value:"Eastover"},
@@ -14,16 +14,16 @@ if (Filters.find({kind:'location'}).count() === 0) {
 	];
 	
 	_.each(list,function(item){
-		item.kind = 'location';
+		item.kind = 'library';
 		Filters.insert(item);
 	});
   
 	// set the parents
 	_.each(list,function(item){
-		var parent = Filters.find({value: item.parent}).fetch();
+		var parent = Filters.find({kind:'library', value: item.parent}).fetch();
 		if(parent.length !== 0){
 			console.log('found parent',parent[0]);
-			var child = Filters.update({value: item.value},{$set: {parent_id:parent[0]._id}, $unset: {parent: ''}});
+			var child = Filters.update({value: item.value, kind:'library'},{$set: {parent_id:parent[0]._id}, $unset: {parent: ''}});
 		}
 	});
 }

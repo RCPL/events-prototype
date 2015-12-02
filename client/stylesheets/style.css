@@ -1,77 +1,86 @@
 header{
-  background-color:aliceblue;
+	background-color:aliceblue;
 }
 
 body{
-  font-family: 'Lato', sans-serif;
-  font-size:16px;
-  background-color:white;
-  background-color:#A5D9EA;
-  background-image:url(noise.png);
+	font-family: 'Lato', sans-serif;
+	font-size:16px;
+	background-color:white;
+	background-color:#A5D9EA;
+	background-image:url(noise.png);
 }
 
+.nav{
+	list-style:none;
+	padding-left:none;
+}
+.nav input{
+	display:none;
+}
+
+
 .events .row{
-  padding:1em 0;
+	padding:1em 0;
 }
 
 .events .row .times{
-    text-align:right;
-  }
+	text-align:right;
+}
 
 @media screen{
-  .events .row:nth-child(even){
-    background-color: rgba(131, 131, 131, 0.08);
-  }
+	.events .row:nth-child(even){
+		background-color: rgba(131, 131, 131, 0.08);
+	}
 
-  .events .row .times{
-    padding-top: 0.5em;
-  }
-  .events .row time{ font-size:200%; }
-  .events .row .time--start{ font-weight:600; }
-  .events .row .time--end{ font-weight:200; font-size:125%;  }
+	.events .row .times{
+		padding-top: 0.5em;
+	}
+	.events .row time{ font-size:200%; }
+	.events .row .time--start{ font-weight:600; }
+	.events .row .time--end{ font-weight:200; font-size:125%;  }
 }
 
 .events .row p.description{
-  max-height:8ex;
-  overflow: hidden;
-  text-overflow: clip;
-  text-overflow: ellipsis;
-  text-overflow: "…";
+	max-height:8ex;
+	overflow: hidden;
+	text-overflow: clip;
+	text-overflow: ellipsis;
+	text-overflow: "…";
 }
 
 .events .row p.details{
-  font-size:80%;
-  color:#333;
+	font-size:80%;
+	color:#333;
 }
 
 .tag{
-  display:inline-block;
-  background-color:black;
-  padding:0.05em 0.3em;
-  color:white;
-  border-radius:0.2em;
+	display:inline-block;
+	background-color:black;
+	padding:0.05em 0.3em;
+	color:white;
+	border-radius:0.2em;
 }
 
 .events .row h3{
-  margin-top:0;
-  font-size:200%;
-  font-weight:600;
-  line-height: 1.3em;
+	margin-top:0;
+	font-size:200%;
+	font-weight:600;
+	line-height: 1.3em;
 }
 
 .events .row .content p{
-  font-size:12pt;
+	font-size:12pt;
 }
 
 .blink {
-  animation: blink 1s steps(2, start) infinite;
-  -webkit-animation: blink 1s steps(2, start) infinite;
+	animation: blink 1s steps(2, start) infinite;
+	-webkit-animation: blink 1s steps(2, start) infinite;
 }
 @keyframes blink {
-  to { visibility: hidden; }
+	to { visibility: hidden; }
 }
 @-webkit-keyframes blink {
-  to { visibility: hidden; }
+	to { visibility: hidden; }
 }
 
 .ballentine{ background-color: #f84747; }
@@ -89,36 +98,36 @@ body{
 .all-locations{ background-color:#2c2d2f; }
 
 @media print{
-  body{
-    font-family:Garamond, serif;
-    font-size:12pt;
-    background:white;
-    color:black;
-  }
+	body{
+		font-family:Garamond, serif;
+		font-size:12pt;
+		background:white;
+		color:black;
+	}
 
-  h1{
-    font-size:150%;
-  }
-  
-  header,nav{ display:none; }
-  
-  .events .row{
-    page-break-inside: avoid;
-  }
-  
-  .events .times{
-    font-size:100%;
-  }
+	h1{
+		font-size:150%;
+	}
 
-  .events .row h3{
-    font-size:110%;
-  }
-  
-  .events .row .details:before{
-    content:'Location: ';
-  }
-  
-  .events .row .details .tag{
-    border:solid 1px black;
-  }
+	header,nav{ display:none; }
+
+	.events .row{
+		page-break-inside: avoid;
+	}
+
+	.events .times{
+		font-size:100%;
+	}
+
+	.events .row h3{
+		font-size:110%;
+	}
+
+	.events .row .details:before{
+		content:'Location: ';
+	}
+
+	.events .row .details .tag{
+		border:solid 1px black;
+	}
 }

@@ -1,26 +1,26 @@
 Template.eventsList.helpers({
 	events: function(){
-		var types = Session.get('types') || [];
-		if(types.length > 0){
-			return Events.find({eventtypes: {$in: types}});
-		}else{
-			return Events.find();
-		}
+		return Events.find(Session.get('filters') || {});
 	},
 	categories: function(){
-		return Filters.find({kind:'category',parent:{$exists:false}});
+		return Filters.find({kind:'eventtypes'});
 	},
 	locations: function(){
-		return Filters.find({kind:'location'});
+		return Filters.find({kind:'library'});
 	},
 	ages: function(){
-		return Filters.find({kind:'age'});
+		return Filters.find({kind:'agegroups'});
 	}
 });
 
 Template.eventsList.events({
 	"click .filters label": function(event){
-//		console.log('this',this);
+		var filters = Session.get('filters') || {};
+		if(this.kind !== undefined){
+			filters[this.kind] = this.value;
+		}
+		Session.set('filters',filters);
+		//var filters = Session.set('filters') || [];
 //		console.log('checked',event.target,event.target.checked);
 //		var types = Session.get('types') || [];
 //		var value = $(event.target).data('value');

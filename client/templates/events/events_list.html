@@ -9,6 +9,12 @@
 		<div class="filters span3">
 			<h2>Types</h2>
 			<ul class="inputs-list nav nav-list">
+				<li>
+					<label>
+						<input type="radio" name="category">
+						<span>Everything</span>
+					</label>
+				</li>
 				{{#each categories}}
 				<li>
 					{{>filter}}
@@ -32,7 +38,6 @@
 				{{/each}}
 			</ul>
 		</div>
-
 
 		<div class="events span9">
 			<div class="row">
