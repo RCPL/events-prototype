@@ -2,15 +2,23 @@ Template.filter.helpers({
 	value:function(){
 		return this.display_value || this.value;
 	},
-	checked:function(){
-		var filters = Session.get('filters');
-//		return (filters.indexOf(this) !== -1);
-		return false;
-	},
 	count:function(){
 		var filters = Session.get('filters') || {};
-		filters[this.kind] = this.value;
+		if(this.value === undefined){
+			delete filters[this.kind];
+		}else{
+			filters[this.kind] = this.value;
+		}
 		return Events.find(filters).count();
-//		return (filters !== undefined);
+	},
+	disabled:function(){
+		var filters = Session.get('filters') || {};
+		if(this.value === undefined){
+			delete filters[this.kind];
+		}else{
+			filters[this.kind] = this.value;
+		}
+		var count = Events.find(filters).count();
+		return (count === 0) ? 'disabled' : '';
 	}
 });

@@ -1,6 +1,6 @@
 Template.eventItem.helpers({
   prettyLibrary:function(){
-    return this.library.replace('Richland Library  ', '').replace('Richland Library ',' ').toLowerCase();
+    return this.library.replace('Richland Library  ', '').replace('Richland Library ',' ').replace('- ','');
   },
   prettyTime:function(){
     

@@ -1,6 +1,8 @@
 if (Filters.find({kind:'eventtypes'}).count() === 0) {
 	
 	var list = [
+		{value:'Z - CULTURAL & ARTS', display_value:'Art & Culture'},
+		{value:'Z - EARLY LITERACY', display_value:'Early Literacy'},
 		{value:'Other'},
 		{value:'Affordable Care Act', parent:'Other'},
 		{value:'Art in the Library', parent:'Other'},
@@ -42,7 +44,7 @@ if (Filters.find({kind:'eventtypes'}).count() === 0) {
 		{value:'Sew Divine', parent:'Other'},
 		{value:'Staff Training (P)', parent:'Other'},
 		{value:'STEM/STEAM', parent:'Other'},
-		{value:'Storytime', parent:'Other'},
+		{value:'Storytime', parent:'Z - EARLY LITERACY'},
 		{value:'Summer Learning Challenge', parent:'Other'},
 		{value:'Summer Reading Club', parent:'Other'},
 		{value:'Teens', parent:'Other'},

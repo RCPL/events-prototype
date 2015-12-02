@@ -1,7 +1,7 @@
 SyncedCron.add({
 	name: 'update Evanced',
 	schedule: function(parser) {
-		return parser.text('every 5 minutes');
+		return parser.text('every 30 minutes');
 	},
 	job: function() {
 		Meteor.call('importEvanced');

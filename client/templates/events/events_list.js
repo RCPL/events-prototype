@@ -14,7 +14,12 @@ Template.eventsList.helpers({
 });
 
 Template.eventsList.events({
-	"click .filters label": function(event){
+	"click .filters a": function(event){
+		event.preventDefault();
+
+//		$(this).parent('ul').children('li').removeClass('active');
+//		this.active = 'active';
+		
 		var filters = Session.get('filters') || {};
 		if(this.kind !== undefined){
 			filters[this.kind] = this.value;

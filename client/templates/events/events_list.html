@@ -9,32 +9,23 @@
 		<div class="filters span3">
 			<h2>Types</h2>
 			<ul class="inputs-list nav nav-list">
-				<li>
-					<label>
-						<input type="radio" name="category">
-						<span>Everything</span>
-					</label>
-				</li>
+				{{>filter display_value="Everything" kind="eventtypes" checked="checked"}}
 				{{#each categories}}
-				<li>
 					{{>filter}}
-				</li>
 				{{/each}}
 			</ul>
 			<h2>Locations</h2>
 			<ul class="inputs-list">
+				{{>filter display_value="Everywhere" kind="library" checked="checked"}}
 				{{#each locations}}
-				<li>
 					{{>filter}}
-				</li>
 				{{/each}}
 			</ul>
 			<h2>Ages</h2>
 			<ul class="inputs-list">
+				{{>filter display_value="Everyone" kind="agegroups" checked="checked"}}
 				{{#each ages}}
-				<li>
 					{{>filter}}
-				</li>
 				{{/each}}
 			</ul>
 		</div>
