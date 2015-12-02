@@ -1,19 +1,31 @@
 <template name="eventsList">
   <h1>Events</h1>
-
   
   <div class="filters">
-    <h2>Locations</h2>
-<!--
-    <a href="" data-key="library" filter="Richland Library Northeast ">Northeast</a>
-    <a href="" data-key="library" filter="Richland Library  Cooper ">Cooper</a>
--->
-    <form>
-      <input id="northeast" type="checkbox" data-library="Richland Library Northeast ">
-      <label for="northeast">Northeast</label>
-      <input id="cooper" type="checkbox" data-library="Richland Library  Cooper ">
-      <label for="cooper">Cooper</label>
-    </form>
+    <h2>Types</h2>
+    <ul class="inputs-list" data-filter-type="types">
+        {{#each types}}
+            <li>
+				{{>filter}}
+            </li>
+        {{/each}}
+    </ul>
+  	<h2>Locations</h2>
+    <ul class="inputs-list" data-filter-type="locations">
+        {{#each locations}}
+            <li>
+				{{>filter}}
+            </li>
+        {{/each}}
+    </ul>
+  	<h2>Ages</h2>
+    <ul class="inputs-list" data-filter-type="ages">
+        {{#each ages}}
+            <li>
+				{{>filter}}
+            </li>
+        {{/each}}
+    </ul>
   </div>
   
   <nav>MENU ~ Page 1,2,3,4,5,6,7,8,9</nav>

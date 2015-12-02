@@ -7,7 +7,7 @@ Meteor.methods({
 				lib:'all',
 				alltime:1,
 				dm:'exml',
-				nd:20
+				nd:100
 			}},
 			function(xmlError,xmlResponse){
 				if(xmlError){
@@ -21,11 +21,15 @@ Meteor.methods({
 							_.each(jsResult.event.item,function(eventItem){
 								eventItem.iso_start = new Date(eventItem.date + ' ' + eventItem.time);
 								eventItem.iso_end = new Date(eventItem.date + ' ' + eventItem.endtime);
+								eventItem.eventtypes = _.without(eventItem.eventtypes.split(', '),'',',');
+								eventItem.agegroups = _.without(eventItem.agegroups.split(', '),'',',');
 								var existing = Events.findOne({id: eventItem.id});
 								if(existing){
 									if(existing.lastupdated != eventItem.lastupdated){
-										console.log('updating event #',eventItem.id)
+										console.log('updating event #',eventItem.id);
 										Events.update({_id: existing._id},eventItem);
+									}else{
+										console.log('existing event #',eventItem.id)
 									}
 								}else{
 									console.log('new event #',eventItem.id)
