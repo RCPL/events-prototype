@@ -1,18 +1,29 @@
-if (Locations.find().count() === 0) {
+if (Filters.find({kind:'location'}).count() === 0) {
 	var list = [
-		{name:"Richland Library - All Locations", short_name:"All Locations"},
-		{name:"Richland Library  Eastover", short_name:"Eastover"},
-		{name:"Richland Library  Cooper", short_name:"Cooper"},
-		{name:"Richland Library  St. Andrews", short_name:"St. Andrews"},
-		{name:"Richland Library Northeast", short_name:"Northeast"},
-		{name:"Richland Library  Southeast", short_name:"Southeast"},
-		{name:"Richland Library  Ballentine", short_name:"Ballentine"},
-		{name:"Richland Library  Blythewood", short_name:"Blythewood"},
-		{name:"Richland Library  Wheatley", short_name:"Wheatley"},
-		{name:"Richland Library  Main", short_name:"Main"},
-		{name:"Richland Library  Sandhills", short_name:"Sandhills"}
+		{value:"Richland Library - All Locations", display_value:"All Locations"},
+		{value:"Richland Library  Eastover", display_value:"Eastover"},
+		{value:"Richland Library  Cooper", display_value:"Cooper"},
+		{value:"Richland Library  St. Andrews", display_value:"St. Andrews"},
+		{value:"Richland Library Northeast", display_value:"Northeast"},
+		{value:"Richland Library  Southeast", display_value:"Southeast"},
+		{value:"Richland Library  Ballentine", display_value:"Ballentine"},
+		{value:"Richland Library  Blythewood", display_value:"Blythewood"},
+		{value:"Richland Library  Wheatley", display_value:"Wheatley"},
+		{value:"Richland Library  Main", display_value:"Main"},
+		{value:"Richland Library  Sandhills", display_value:"Sandhills"}
 	];
+	
 	_.each(list,function(item){
-		Locations.insert(item);
+		item.kind = 'location';
+		Filters.insert(item);
+	});
+  
+	// set the parents
+	_.each(list,function(item){
+		var parent = Filters.find({value: item.parent}).fetch();
+		if(parent.length !== 0){
+			console.log('found parent',parent[0]);
+			var child = Filters.update({value: item.value},{$set: {parent_id:parent[0]._id}, $unset: {parent: ''}});
+		}
 	});
 }

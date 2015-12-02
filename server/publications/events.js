@@ -3,14 +3,14 @@ Meteor.publish('events', function() {
 	return Events.find({iso_end: {$gte: now}},{sort:{iso_start: 1},limit:100});
 });
 
-Meteor.publish('types', function() {
-	return Types.find();
+Meteor.publish('categories', function() {
+	return Filters.find({kind:'category'});
 });
 
 Meteor.publish('locations', function() {
-	return Locations.find();
+	return Filters.find({kind:'location'});
 });
 
 Meteor.publish('ages', function() {
-	return Ages.find();
+	return Filters.find({kind:'age'});
 });

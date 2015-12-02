@@ -44,6 +44,13 @@ Meteor.methods({
 	}
 });
 
+Meteor.methods({
+	'pruneEvanced':function(){
+		var removed = Events.remove({iso_end: {$lte: new Date()}});
+		console.log('removed',removed);
+	}
+});
+
 if (Events.find().count() === 0) {
 	Meteor.call('importEvanced');
 }

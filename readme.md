@@ -12,3 +12,9 @@ See also: https://www.meteor.com/install
     
 ## Resetting the Database
     meteor reset && meteor
+
+
+## Notes from Columbus
+Use "live" api to render results on page
+Use import/cache to handle search & counts for types/locations/age groups
+Taxonomy for the types/locations/age groups stored.
