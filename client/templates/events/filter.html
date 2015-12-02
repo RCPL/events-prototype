@@ -1,6 +1,7 @@
 <template name="filter">
 	<label data-value="{{value}}">
-		<input type="radio" name="{{key}}" checked="{{checked}}">
+		<input type="radio" name="{{kind}}" checked="{{checked}}">
 		<span>{{value}}</span>
+		<span class="badge pull-right">{{count}}</span>
 	</label>
 </template>

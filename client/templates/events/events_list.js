@@ -7,27 +7,28 @@ Template.eventsList.helpers({
 			return Events.find();
 		}
 	},
-	types: function(){
-		return Types.find();
+	categories: function(){
+		return Filters.find({kind:'category',parent:{$exists:false}});
 	},
 	locations: function(){
-		return Locations.find();
+		return Filters.find({kind:'location'});
 	},
 	ages: function(){
-		return Ages.find();
+		return Filters.find({kind:'age'});
 	}
 });
 
 Template.eventsList.events({
 	"click .filters label": function(event){
-		console.log('checked',event.target,event.target.checked);
-		var types = Session.get('types') || [];
-		var value = $(event.target).data('value');
-		if(event.target.checked){
-			types.push(value);
-		}else{
-			types = _.without(types, value);
-		}
-		Session.set('types',types);
+//		console.log('this',this);
+//		console.log('checked',event.target,event.target.checked);
+//		var types = Session.get('types') || [];
+//		var value = $(event.target).data('value');
+//		if(event.target.checked){
+//			types.push(value);
+//		}else{
+//			types = _.without(types, value);
+//		}
+//		Session.set('types',types);
 	}
 });

@@ -1,53 +1,58 @@
 <template name="eventsList">
 	<h1>Events</h1>
 
-	<div class="filters">
-		<h2>Types</h2>
-		<ul class="inputs-list">
-			{{#each categories}}
-			<li>
-				{{>filter}}
-			</li>
-			{{/each}}
-		</ul>
-		<h2>Locations</h2>
-		<ul class="inputs-list">
-			{{#each locations}}
-			<li>
-				{{>filter}}
-			</li>
-			{{/each}}
-		</ul>
-		<h2>Ages</h2>
-		<ul class="inputs-list">
-			{{#each ages}}
-			<li>
-				{{>filter}}
-			</li>
-			{{/each}}
-		</ul>
+	<div class="row">
+		<nav>MENU ~ Page 1,2,3,4,5,6,7,8,9</nav>
 	</div>
 
-	<nav>MENU ~ Page 1,2,3,4,5,6,7,8,9</nav>
+	<div class="row">
+		<div class="filters span3">
+			<h2>Types</h2>
+			<ul class="inputs-list nav nav-list">
+				{{#each categories}}
+				<li>
+					{{>filter}}
+				</li>
+				{{/each}}
+			</ul>
+			<h2>Locations</h2>
+			<ul class="inputs-list">
+				{{#each locations}}
+				<li>
+					{{>filter}}
+				</li>
+				{{/each}}
+			</ul>
+			<h2>Ages</h2>
+			<ul class="inputs-list">
+				{{#each ages}}
+				<li>
+					{{>filter}}
+				</li>
+				{{/each}}
+			</ul>
+		</div>
 
-	<div class="events">
-		<div class="row">
-			<div class="span2 times">
-				<time class="time--start">
-					<span id="currentTimeHours">00</span><span class="blink">:</span><span id="currentTimeMinutes">00</span>
-					<span class="meridian" id="currentTimeMeridian"></span>
-				</time>
+
+		<div class="events span9">
+			<div class="row">
+				<div class="span2 times">
+					<time class="time--start">
+						<span id="currentTimeHours">00</span><span class="blink">:</span><span id="currentTimeMinutes">00</span>
+						<span class="meridian" id="currentTimeMeridian"></span>
+					</time>
+				</div>
+				<div class="span7">
+					<h3>Today</h3>
+				</div>
 			</div>
-			<div class="span7">
-				<h3>Today</h3>
+			{{#each events}}
+			<div class="row">
+				{{> eventItem}}
 			</div>
+			{{/each}}
 		</div>
-		{{#each events}}
-		<div class="row">
-			{{> eventItem}}
-		</div>
-		{{/each}}
 	</div>
-	<nav>MENU ~ Page 1,2,3,4,5,6,7,8,9</nav>
+
 	<footer>footer footer footer footer footer</footer>
 </template>
