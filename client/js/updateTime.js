@@ -5,11 +5,11 @@ function updateTime(){
   var now = new Date();
   var hours = now.getHours();
   var minutes = now.getMinutes();
-  var meridian = 'AM';
+  var meridian = 'a.m.';
   if(hours === 0){ hours = 12; }
   if(hours > 12){
     hours -= 12;
-    meridian = 'PM';
+    meridian = 'p.m.';
   }
   if(minutes < 10){ minutes = '0' + minutes; }
   hoursEl.innerHTML = hours;

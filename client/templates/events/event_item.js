@@ -5,14 +5,23 @@ Template.eventItem.helpers({
 	tagClass:function(){
 		return this.library.replace('Richland Library', '').replace(' ','').replace('-','').toLowerCase();
 	},
-	prettyTime:function(){
-		var hours = this.iso_start.hours;
-		var minutes = this.iso_start.minutes;
+	prettyTime:function(time){
+		var hours = time.getHours();
+		var minutes = time.getMinutes();
+		var meridian = 'a.m.';
 
-		if(minutes === 0){
-			return hours;
+		if(hours === 0){ hours = 12; }
+		if(hours > 12){
+			hours -= 12;
+			meridian = 'p.m.';
 		}
 
-		return hours
+		if(minutes === 0) minutes = '';
+		else minutes = ':' + minutes;
+
+		return hours + minutes +' '+ meridian;
+	},
+	prettyDate:function(){
+		return this.iso_start.getMonth()+1 +'/'+ this.iso_start.getDate();
 	}
 });
