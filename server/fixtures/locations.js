@@ -19,11 +19,12 @@ if (Filters.find({kind:'library'}).count() === 0) {
 	});
   
 	// set the parents
-	_.each(list,function(item){
-		var parent = Filters.find({kind:'library', value: item.parent}).fetch();
-		if(parent.length !== 0){
-			console.log('found parent',parent[0]);
-			var child = Filters.update({value: item.value, kind:'library'},{$set: {parent_id:parent[0]._id}, $unset: {parent: ''}});
+	Filters.find({kind:'library'})
+	.forEach(function(item){
+		if(item.parent !== undefined){
+			var parent = Filters.findOne({kind:item.kind, value:item.parent});
+			console.log('item.parent:',item.parent,' matches parent:',parent._id);
+			Filters.update({_id:item._id},{$set: {parent_id:parent._id}, $unset: {parent: ''}});
 		}
 	});
 }

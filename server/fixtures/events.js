@@ -21,8 +21,8 @@ Meteor.methods({
 							_.each(jsResult.event.item,function(eventItem){
 								eventItem.iso_start = new Date(eventItem.date + ' ' + eventItem.time);
 								eventItem.iso_end = new Date(eventItem.date + ' ' + eventItem.endtime);
-								eventItem.eventtypes = _.without(eventItem.eventtypes.split(', '),'',',');
-								eventItem.agegroups = _.without(eventItem.agegroups.split(', '),'',',');
+								eventItem.eventtypes = _.without(eventItem.eventtypes.split(', '),',',' ','  ');
+								eventItem.agegroups = _.without(eventItem.agegroups.split(', '),',','',' ','  ');
 								var existing = Events.findOne({id: eventItem.id});
 								if(existing){
 									if(existing.lastupdated != eventItem.lastupdated){

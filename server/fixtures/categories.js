@@ -3,6 +3,11 @@ if (Filters.find({kind:'eventtypes'}).count() === 0) {
 	var list = [
 		{value:'Z - CULTURAL & ARTS', display_value:'Art & Culture'},
 		{value:'Z - EARLY LITERACY', display_value:'Early Literacy'},
+		{value:'Z - LIFESKILLS', display_value:'Life Skills'},
+		{value:'Z - LITERACY', display_value:'Literacy'},
+		{value:'Z - COMPUTERS & TECHNOLOGY', display_value:'Technology'},
+		{value:'Z - COMMUNITY ENGAGEMENT', display_value:'Community'},
+		{value:'Z - WORKFORCE DEVELOPMENT', display_value:'Careers'},
 		{value:'Other'},
 		{value:'Affordable Care Act', parent:'Other'},
 		{value:'Art in the Library', parent:'Other'},
@@ -58,11 +63,17 @@ if (Filters.find({kind:'eventtypes'}).count() === 0) {
 	});
 
 	// set the parents
-	_.each(list,function(item){
-		var parent = Filters.find({kind:'eventtypes', value: item.parent}).fetch();
-		if(parent.length !== 0){
-			console.log('found parent',parent[0]);
-			var child = Filters.update({value: item.value, kind:'eventtypes'},{$set: {parent_id:parent[0]._id}, $unset: {parent: ''}});
+	Filters.find({kind:'eventtypes'})
+	.forEach(function(item){
+		if(item.parent !== undefined){
+			var parent = Filters.findOne({kind:item.kind, value:item.parent});
+			if(parent !== undefined){
+				console.log('item.parent:',item.parent,' matches parent:',parent._id);
+				Filters.update({_id:item._id},{$set: {parent_id:parent._id}, $unset: {parent: ''}});
+			}else{
+				console.log('error with parent',parent);
+			}
 		}
 	});
 }
+
