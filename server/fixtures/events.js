@@ -46,8 +46,9 @@ Meteor.methods({
 
 Meteor.methods({
 	'pruneEvanced':function(){
-		var removed = Events.remove({iso_end: {$lte: new Date()}});
-		console.log('removed',removed);
+		var dayOld = moment().subtract(1,'days');
+		var removed = Events.remove({iso_end: {$lte: dayOld._d}});
+		console.log('removed',removed,'events');
 	}
 });
 

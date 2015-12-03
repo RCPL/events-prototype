@@ -23,5 +23,9 @@ Template.eventItem.helpers({
 	},
 	prettyDate:function(){
 		return this.iso_start.getMonth()+1 +'/'+ this.iso_start.getDate();
+	},
+	staffPick:function(){
+//		return this.featuredevent;
+		return (this.featuredevent == 1) ? 'staff pick' : '';
 	}
 });

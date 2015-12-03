@@ -1,4 +1,6 @@
 Meteor.publish('events', function() {
 	var now = new Date();
-	return Events.find({iso_end: {$gte: now}},{sort:{iso_start: 1},limit:100});
+	var eow = moment(new Date()).endOf("day").add(6,'days');
+	console.log('end of week',eow._d);
+	return Events.find({iso_end: {$gte: now, $lte: eow._d}},{sort:{iso_start: 1},limit:100});
 });
