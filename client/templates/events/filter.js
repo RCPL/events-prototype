@@ -2,9 +2,12 @@ Template.filter.helpers({
 	value:function(){
 		return this.display_value || this.value;
 	},
-	checked:function(){
-		if(this.checked == 'checked') return 'checked';
-		else return '';
+	active:function(){
+		if(Session.get(this.kind) === this._id){
+			return 'active';
+		}else{
+			return '';
+		}
 	},
 	count:function(){
 		var filters = Session.get('filters') || {};
