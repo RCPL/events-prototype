@@ -3,9 +3,9 @@ Meteor.publish('categories', function() {
 });
 
 Meteor.publish('locations', function() {
-	return Filters.find({kind:'library', parent_id: {$exists: false}});
+	return Filters.find({kind:'library'});
 });
 
 Meteor.publish('ages', function() {
-	return Filters.find({kind:'agegroups', parent_id: {$exists: false}});
+	return Filters.find({kind:'agegroups'});
 });

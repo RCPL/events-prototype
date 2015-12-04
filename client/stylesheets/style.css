@@ -14,10 +14,16 @@ body{
 	list-style:none;
 	padding-left:none;
 }
-.nav input{
-/*	display:none;*/
+
+.dates .name{
+	text-transform: uppercase;
+	display:inline-block;
+	width:3em;
 }
 
+.dates .number{
+	font-size:150%;
+}
 
 .events .row{
 	padding:1em 0;
@@ -110,6 +116,9 @@ body{
 	}
 
 	header,nav{ display:none; }
+	.filters{
+		display:none;
+	}
 
 	.events .row{
 		page-break-inside: avoid;
@@ -120,7 +129,8 @@ body{
 	}
 
 	.events .row h3{
-		font-size:110%;
+		font-size:80%;
+		font-weight:200;
 	}
 
 	.events .row .details:before{

@@ -1,8 +1,12 @@
 <template name="eventItem">
 	<div class="times span2">
-		<time class="time--start">{{prettyTime iso_start}}</time>
-		<br><time class="time--end">until {{prettyTime iso_end}}</time>
-		<br><small>{{prettyDate}}</small>
+		<small>
+			{{prettyTime iso_start}}
+			<!--– {{prettyTime iso_end}}-->
+			<br>{{prettyLibrary}}
+			<br>{{location}}
+			<br>{{prettyDate}}
+		</small>
 	</div>
 
 	<div class="content span7">
@@ -14,7 +18,9 @@
 		</p>
 	</div>
 
+<!--
 	<div class="image span3">
 		<img src="{{imagepath}}">
 	</div>
+-->
 </template>

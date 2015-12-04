@@ -1,18 +1,18 @@
 Template.eventsList.helpers({
 	thisType: function(){
-		var filters = Session.get('filters');
+		var filters = Session.get('filters') || {};
 		if(filters.eventtypes !== undefined){
 			return filters.eventtypes + ' ';
 		}
 	},
 	atLocation: function(){
-		var filters = Session.get('filters');
+		var filters = Session.get('filters') || {};
 		if(filters.library !== undefined){
 			return ' at ' + filters.library;
 		}
 	},
 	forAges: function(){
-		var filters = Session.get('filters');
+		var filters = Session.get('filters') || {};
 		if(filters.agegroups !== undefined){
 			return ' for ' + filters.agegroups;
 		}
@@ -42,6 +42,6 @@ Template.eventsList.events({
 		Session.set('filters',filters);
 
 		Session.set(this.kind, this._id);
-		console.log(this);
+		console.log(this._id);
 	}
 });

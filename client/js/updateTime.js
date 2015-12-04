@@ -17,6 +17,6 @@ function updateTime(){
   meridianEl.innerHTML = meridian;
 }
 
-window.updateTime = updateTime;
+//window.updateTime = updateTime;
 
-setInterval(window.updateTime,1000);
+//setInterval(window.updateTime,1000);
