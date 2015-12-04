@@ -4,17 +4,17 @@ if (Filters.find({kind:'eventtypes'}).count() === 0) {
 		{value:'Z - CULTURAL & ARTS', display_value:'Art & Culture'},
 		{value:'Z - LITERACY', display_value:'Books & Writing'},
 		{value:'Z - WORKFORCE DEVELOPMENT', display_value:'Business & Jobs'},
-		{value:'Z - COMMUNITY ENGAGEMENT', display_value:'Community Conversations'},
+		{value:'Z - COMMUNITY ENGAGEMENT', display_value:'Community'},
 		{value:'Education'},
-		{value:'Health and Wellness'},
+		{value:'Health and Wellness', display_value:'Health & Wellness'},
 		{value:'Local History', display_value:'History'},
 		{value:'Hobbies & Crafts'},
 //		{value:'Z - LIFESKILLS', display_value:'Life Skills'},
-		{value:'Z - COMPUTERS & TECHNOLOGY', display_value:'Science & Technology'},		
+		{value:'Z - COMPUTERS & TECHNOLOGY', display_value:'Science & Tech'},		
 		{value:'Z - EARLY LITERACY', display_value:'Storytime'},
 
 //		{value:'Seasonal'},
-		{value:'Internal / Library Updates'},
+		{value:'Library Updates'},
 		
 		{value:'Other'},
 		

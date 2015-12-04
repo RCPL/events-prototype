@@ -1,6 +1,6 @@
 Template.eventItem.helpers({
 	prettyLibrary:function(){
-		return this.library.replace('Richland Library', '').replace(' ','').replace('-','');
+		return this.library.replace('Richland Library  ', '').replace('Richland Library ', '').replace('- ','');
 	},
 	tagClass:function(){
 		return this.library.replace('Richland Library', '').replace(' ','').replace('-','').toLowerCase();
@@ -30,5 +30,16 @@ Template.eventItem.helpers({
 	},
 	staffPick:function(){
 		return (this.featuredevent == 1) ? '★ Staff Pick' : '';
+	},
+	description:function(){
+		return this.description.replace('<br />','');
+	},
+	location:function(){
+		if(this.location !== undefined){
+			var library = this.library.replace('Richland Library  ', '').replace('Richland Library ', '').replace('- ','');
+			return ' / ' + this.location.replace(library+' ','');
+		}else{
+			return '';
+		}
 	}
 });

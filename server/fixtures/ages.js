@@ -1,7 +1,7 @@
 if (Filters.find({kind:'agegroups'}).count() === 0) {
 	var list = [
 //		{value:'Children All Ages'},
-		{value:'Babies up to 12 months'},
+		{value:'Babies'},
 //		{value:'Programs for Young Children', display_value:'For Young Children'},
 //		{value:'Programs for School Age Children', display_value:'For School Age'},
 //		{value:'Programs for Parents', display_value:'For Parents'},
