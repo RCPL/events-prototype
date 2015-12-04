@@ -8,23 +8,27 @@ Template.eventItem.helpers({
 	prettyTime:function(time){
 		var hours = time.getHours();
 		var minutes = time.getMinutes();
-		var meridian = 'a.m.';
+		var meridiem = 'a.m.';
 
 		if(hours === 0){ hours = 12; }
 		if(hours > 12){
 			hours -= 12;
-			meridian = 'p.m.';
+			meridiem = 'p.m.';
 		}
 
 		if(minutes === 0) minutes = '';
 		else minutes = ':' + minutes;
 
-		return hours + minutes +' '+ meridian;
+		return hours + minutes + meridiem;
 	},
 	prettyDate:function(){
-		return this.iso_start.getMonth()+1 +'/'+ this.iso_start.getDate();
+		if(Session.get('date') === undefined){
+			return moment(this.iso_start).format('ddd, MMM D');
+		}else{
+			return '';
+		}
 	},
 	staffPick:function(){
-		return (this.featuredevent == 1) ? 'staff pick' : '';
+		return (this.featuredevent == 1) ? '★ Staff Pick' : '';
 	}
 });

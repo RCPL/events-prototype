@@ -1,26 +1,25 @@
 <template name="eventItem">
-	<div class="times span2">
-		<small>
+	<div clas="row">
+		<div class="span12">
+			<h4><a href="{{pathFor 'postPage'}}">{{title}}</a> <span class="staff-pick">{{staffPick}}</span></h4>
+		</div>
+		
+		<div class="times span1">
 			{{prettyTime iso_start}}
-			<!--– {{prettyTime iso_end}}-->
-			<br>{{prettyLibrary}}
-			<br>{{location}}
 			<br>{{prettyDate}}
-		</small>
-	</div>
+		</div>
 
-	<div class="content span7">
-		<h3><a href="{{pathFor 'postPage'}}">{{title}}</a><span class="badge">{{staffPick}}</span></h3>
+		<div class="content span4">
+			<p class="details">
+				<span>{{prettyLibrary}} / {{location}}</span>
+				<p><small>{{description}}</small></p>
+			</p>
+		</div>
 
-		<p class="details">
-			<span class="tag {{tagClass}}">{{prettyLibrary}}</span>
-			{{location}}
-		</p>
+	<!--
+		<div class="image span3">
+			<img src="{{imagepath}}">
+		</div>
+	-->
 	</div>
-
-<!--
-	<div class="image span3">
-		<img src="{{imagepath}}">
-	</div>
--->
 </template>

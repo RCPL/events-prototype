@@ -6,7 +6,7 @@ body{
 	font-family: 'Avenir Next', sans-serif;
 	font-size:16px;
 	background-color:white;
-	background-color:#A5D9EA;
+/*	background-color:#A5D9EA;*/
 	background-image:url(noise.png);
 }
 
@@ -29,8 +29,14 @@ body{
 	padding:1em 0;
 }
 
+/*
 .events .row .times{
 	text-align:right;
+}
+*/
+
+.staff-pick{
+	color:red;
 }
 
 @media screen{
