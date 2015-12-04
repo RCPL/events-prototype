@@ -9,17 +9,17 @@ Template.eventItem.helpers({
 		var hours = time.getHours();
 		var minutes = time.getMinutes();
 		var meridiem = 'a.m.';
-
-		if(hours === 0){ hours = 12; }
-		if(hours > 12){
+		
+		if(hours >= 12){
 			hours -= 12;
 			meridiem = 'p.m.';
 		}
+		if(hours === 0){ hours = 12; }
 
 		if(minutes === 0) minutes = '';
 		else minutes = ':' + minutes;
 
-		return hours + minutes + meridiem;
+		return hours + minutes +' '+ meridiem;
 	},
 	prettyDate:function(){
 		if(Session.get('date') === undefined){

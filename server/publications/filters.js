@@ -3,7 +3,7 @@ Meteor.publish('categories', function() {
 });
 
 Meteor.publish('locations', function() {
-	return Filters.find({kind:'library'});
+	return Filters.find({kind:'library'},{sort:{display_value:1}});
 });
 
 Meteor.publish('ages', function() {

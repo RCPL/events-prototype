@@ -2,13 +2,23 @@ if (Filters.find({kind:'eventtypes'}).count() === 0) {
 	
 	var list = [
 		{value:'Z - CULTURAL & ARTS', display_value:'Art & Culture'},
-		{value:'Z - EARLY LITERACY', display_value:'Early Literacy'},
-		{value:'Z - LIFESKILLS', display_value:'Life Skills'},
-		{value:'Z - LITERACY', display_value:'Literacy'},
-		{value:'Z - COMPUTERS & TECHNOLOGY', display_value:'Technology'},
-		{value:'Z - COMMUNITY ENGAGEMENT', display_value:'Community'},
-		{value:'Z - WORKFORCE DEVELOPMENT', display_value:'Careers'},
+		{value:'Z - LITERACY', display_value:'Books & Writing'},
+		{value:'Z - WORKFORCE DEVELOPMENT', display_value:'Business & Jobs'},
+		{value:'Z - COMMUNITY ENGAGEMENT', display_value:'Community Conversations'},
+		{value:'Education'},
+		{value:'Health and Wellness'},
+		{value:'Local History', display_value:'History'},
+		{value:'Hobbies & Crafts'},
+//		{value:'Z - LIFESKILLS', display_value:'Life Skills'},
+		{value:'Z - COMPUTERS & TECHNOLOGY', display_value:'Science & Technology'},		
+		{value:'Z - EARLY LITERACY', display_value:'Storytime'},
+
+//		{value:'Seasonal'},
+		{value:'Internal / Library Updates'},
+		
 		{value:'Other'},
+		
+		
 		{value:'Affordable Care Act', parent:'Other'},
 		{value:'Art in the Library', parent:'Other'},
 		{value:'Augusta Baker\'s Dozen', parent:'Other'},
@@ -32,11 +42,11 @@ if (Filters.find({kind:'eventtypes'}).count() === 0) {
 		{value:'Genealogy', parent:'Other'},
 		{value:'Go Green', parent:'Other'},
 		{value:'Growing Savers', parent:'Other'},
-		{value:'Health and Wellness', parent:'Other'},
+		
 		{value:'Holiday Programs', parent:'Other'},
 		{value:'Job and Career', parent:'Other'},
-		{value:'Let\'s Speak English', parent:'Other'},
-		{value:'Local History', parent:'Other'},
+		{value:'Let\'s Speak English', parent:'Education'},
+		
 		{value:'Maker', parent:'Other'},
 		{value:'Meetings', parent:'Other'},
 		{value:'Movies', parent:'Other'},
@@ -46,7 +56,7 @@ if (Filters.find({kind:'eventtypes'}).count() === 0) {
 		{value:'OneBook', parent:'Other'},
 		{value:'ongoing (P)', parent:'Other'},
 		{value:'Performance', parent:'Other'},
-		{value:'Sew Divine', parent:'Other'},
+		{value:'Sew Divine', parent:'Hobbies & Crafts'},
 		{value:'Staff Training (P)', parent:'Other'},
 		{value:'STEM/STEAM', parent:'Other'},
 		{value:'Storytime', parent:'Z - EARLY LITERACY'},

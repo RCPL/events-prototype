@@ -41,7 +41,9 @@ body{
 
 @media screen{
 	.events .row:nth-child(even){
-		background-color: rgba(131, 131, 131, 0.08);
+		background-color: rgba(131, 131, 131, 0.01);
+		border-top: solid 1px #eee;
+		border-bottom: solid 1px #eee;
 	}
 
 	.events .row .times{
@@ -50,6 +52,12 @@ body{
 	.events .row time{ font-size:200%; }
 	.events .row .time--start{ font-weight:600; }
 	.events .row .time--end{ font-weight:200; font-size:125%;  }
+}
+
+.events .times{
+	float: left;
+	margin-left: 30px;
+	width: 90px;
 }
 
 .events .row p.description{
