@@ -1,12 +1,10 @@
 <template name="eventsList">
 	<h1>{{thisType}}Events{{atLocation}}{{forAges}}</h1>
 
-	<div class="row">
-		{{>dates}}
-	</div>
+	{{>dates}}
 
-	<div class="row">
-		<div class="filters span3">
+	<div class="row row-offcanvas row-offcanvas-left">
+		<div class="filters span3 col-md-3 sidebar-offcanvas">
 			<h2>Types</h2>
 			<ul class="nav nav-list">
 				{{>filter display_value="Everything" kind="eventtypes"}}
@@ -30,7 +28,7 @@
 			</ul>
 		</div>
 
-		<div class="events span7 offset1">
+		<div class="events span7 col-md-7 offset1">
 			{{#each events}}
 				{{> eventItem}}
 			{{/each}}

@@ -29,6 +29,10 @@ body{
 	padding:1em 0;
 }
 
+.dates a{
+	height:3em;
+}
+
 /*
 .events .row .times{
 	text-align:right;
