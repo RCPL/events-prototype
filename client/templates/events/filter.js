@@ -27,5 +27,8 @@ Template.filter.helpers({
 		}
 		var count = Events.find(filters).count();
 		return (count === 0) ? 'disabled' : '';
+	},
+	hasParent: function(){
+		return (this.parent_id !== undefined) ? 'has-parent' : '';
 	}
 });

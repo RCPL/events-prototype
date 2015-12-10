@@ -15,6 +15,10 @@ body{
 	padding-left:none;
 }
 
+.has-parent{
+	margin-left:1em;
+}
+
 .dates .name{
 	text-transform: uppercase;
 	display:inline-block;
