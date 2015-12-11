@@ -10,13 +10,19 @@
 		</div>
 
 		<div class="content span4">
+			<div class="location"><span>{{prettyLibrary}}</span><span>{{location}}</span></div>
+			{{#if signup_display}}
+			<div><a class="btn" href="{{link}}">Register ({{signup_openings}} Available)</a></div>
+			{{/if}}
+			
 			<p class="details">
-				<span>{{prettyLibrary}}</span><span>{{location}}</span>
+				<small>{{prettyDescription}}</small>
 				<br>
-				<small>{{description}}</small>
-				<br><small>({{eventtypes}})</small>
-				<br><small>Ages {{agegroups}}</small>
+				<br><small>{{prieventtype}}</small>
+				<br><small>{{agegroups}}</small>
 			</p>
+			
+			
 		</div>
 
 		<div class="image span1">

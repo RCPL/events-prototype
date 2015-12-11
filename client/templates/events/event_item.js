@@ -31,8 +31,11 @@ Template.eventItem.helpers({
 	staffPick:function(){
 		return (this.featuredevent == 1) ? '★ Staff Pick' : '';
 	},
-	description:function(){
+	prettyDescription:function(){
 		return this.description.replace('<br />','');
+	},
+	signup_display: function(){
+		return (this.signup == 1);
 	},
 	location:function(){
 		if(this.location !== undefined){
