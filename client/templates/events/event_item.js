@@ -37,8 +37,8 @@ Template.eventItem.helpers({
 	signup_display: function(){
 		return (this.signup == 1);
 	},
-	location:function(){
-		if(this.location !== undefined){
+	prettyLocation:function(){
+		if(this.location !== null){
 			var library = this.library.replace('Richland Library  ', '').replace('Richland Library ', '').replace('- ','');
 			return ' / ' + this.location.replace(library+' ','');
 		}else{

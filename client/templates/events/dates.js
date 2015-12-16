@@ -28,7 +28,5 @@ Template.dates.events({
 			delete filters.iso_end;
 		}
 		Session.set('filters',filters);
-		
-		console.log('this number',Session.get('date'));
 	}
 });
