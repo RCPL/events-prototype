@@ -31,9 +31,6 @@ Template.eventItem.helpers({
 	staffPick:function(){
 		return (this.featuredevent == 1) ? '★ Staff Pick' : '';
 	},
-	prettyDescription:function(){
-		return this.description.replace('<br />','');
-	},
 	signup_display: function(){
 		return (this.signup == 1);
 	},
@@ -44,5 +41,24 @@ Template.eventItem.helpers({
 		}else{
 			return '';
 		}
+	},
+	queuePrint: function(){
+		var queue = Session.get('queue') || [];
+		return (queue.indexOf(this._id) === -1) ? 'Print' : 'Don\'t print';
+	}
+});
+
+Template.eventsList.events({
+	"click a.toggle-queue": function(event){
+		event.preventDefault();
+		
+		var queue = Session.get('queue') || [];
+		if(queue.indexOf(this._id) === -1){
+			queue.push(this._id);
+		}else{
+			queue = _.without(queue,this._id);
+		}
+		Session.set('queue',queue);
+		console.log('(un)queued',this._id);
 	}
 });

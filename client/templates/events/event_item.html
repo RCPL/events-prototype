@@ -1,7 +1,7 @@
 <template name="eventItem">
 	<div class="row">
 		<div class="span7">
-			<h4><a href="{{pathFor 'eventPage'}}">{{title}}</a> <span class="staff-pick">{{staffPick}}</span></h4>
+			<h4 class="title"><a href="{{pathFor 'eventPage'}}">{{title}}</a> <span class="staff-pick">{{staffPick}}</span></h4>
 		</div>
 		
 		<div class="times">
@@ -10,18 +10,19 @@
 		</div>
 
 		<div class="content span4">
-			<div class="location"><span>{{prettyLibrary}}</span><span>{{prettyLocation}}</span></div>
+			<div class="location"><span class="library">{{prettyLibrary}}</span><span class="room">{{prettyLocation}}</span></div>
 			{{#if signup_display}}
-			<div><a class="btn" href="{{link}}">Register ({{signup_openings}} Available)</a></div>
+			<div class="signup"><a class="btn" href="{{link}}">Register ({{signup_openings}} Available)</a></div>
 			{{/if}}
 			
 			<p class="details">
-				<small>{{prettyDescription}}</small>
+				<small>{{description}}</small>
 				<br>
 				<br><small>{{prieventtype}}</small>
 				<br><small>{{agegroups}}</small>
 			</p>
 			
+			<a href="#{{_id}}" class="toggle-queue">{{queuePrint}}</a>
 			
 		</div>
 
