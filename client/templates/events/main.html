@@ -1,0 +1,17 @@
+<template name="eventsMain">
+	<h1>{{thisType}}Events{{atLocation}}{{forAges}}</h1>
+
+	{{>dates}}
+
+	<div class="row">
+		{{>filters}}
+
+		<div class="events span7 col-md-7 offset1">
+			{{#each events}}
+				{{> eventItem}}
+			{{/each}}
+		</div>
+	</div>
+
+	<footer></footer>
+</template>

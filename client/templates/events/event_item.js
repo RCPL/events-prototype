@@ -9,7 +9,7 @@ Template.eventItem.helpers({
 		var hours = time.getHours();
 		var minutes = time.getMinutes();
 		var meridiem = 'a.m.';
-		
+
 		if(hours >= 12){
 			hours -= 12;
 			meridiem = 'p.m.';
@@ -48,10 +48,10 @@ Template.eventItem.helpers({
 	}
 });
 
-Template.eventsList.events({
+Template.eventItem.events({
 	"click a.toggle-queue": function(event){
 		event.preventDefault();
-		
+
 		var queue = Session.get('queue') || [];
 		if(queue.indexOf(this._id) === -1){
 			queue.push(this._id);

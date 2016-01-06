@@ -1,0 +1,26 @@
+<template name="filters">
+	<div class="filters span3 col-md-3">
+		<a class="toggleQueue" href="#">View Print Queue <span class="pull-right">{{queueCount}}</span></a>
+		<h2>Types</h2>
+		<ul class="nav nav-list">
+			{{>filter display_value="Everything" kind="eventtypes"}}
+			{{#each categories}}
+				{{>filter}}
+			{{/each}}
+		</ul>
+		<h2>Locations</h2>
+		<ul class="nav nav-list">
+			{{>filter display_value="Everywhere" kind="library"}}
+			{{#each locations}}
+				{{>filter}}
+			{{/each}}
+		</ul>
+		<h2>Ages</h2>
+		<ul class="nav nav-list">
+			{{>filter display_value="Everyone" kind="agegroups"}}
+			{{#each ages}}
+				{{>filter}}
+			{{/each}}
+		</ul>
+	</div>
+</template>

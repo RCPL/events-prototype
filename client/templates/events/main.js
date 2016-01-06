@@ -1,4 +1,4 @@
-Template.eventsList.helpers({
+Template.eventsMain.helpers({
 	thisType: function(){
 		var filters = Session.get('filters') || {};
 		if(filters.eventtypes !== undefined){
@@ -39,7 +39,7 @@ Template.eventsList.helpers({
 	}
 });
 
-Template.eventsList.events({
+Template.eventsMain.events({
 	"click .filters ul a": function(event){
 		event.preventDefault();
 
