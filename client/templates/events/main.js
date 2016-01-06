@@ -19,9 +19,9 @@ Template.eventsMain.helpers({
 	},
 	events: function(){
 		if(Session.get('viewQueue') === true){
-			return Events.find(Session.get('filters') || {});
-		}else{
 			return Events.find({_id:{$in: Session.get('queue')}});
+		}else{
+			return Events.find(Session.get('filters') || {});
 		}
 	},
 	categories: function(){
