@@ -1,9 +1,13 @@
 <template name="filters">
 	<div class="filters span3 col-md-3">
-		<a class="toggleQueue" href="#">View Print Queue <span class="pull-right">{{queueCount}}</span></a>
+		<ul class="nav nav-list">
+			<li><a class="toggleQueue" href="#">{{viewQueue}} Print Queue<span class="pull-right">{{queueCount}}</span></a></li>
+			<!-- <li><a class="togglePicks" href="#">{{viewPicks}} Staff Picks<span class="pull-right">{{pickCount}}</span></a></li> -->
+		</ul>
 		<h2>Types</h2>
 		<ul class="nav nav-list">
 			{{>filter display_value="Everything" kind="eventtypes"}}
+			{{>filter display_value="Staff Picks" kind="eventtypes" kind_overwrite="featuredevent" value="1"}}
 			{{#each categories}}
 				{{>filter}}
 			{{/each}}

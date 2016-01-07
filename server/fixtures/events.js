@@ -31,6 +31,7 @@ Meteor.methods({
 								eventItem.agegroups = _.without(eventItem.agegroups.split(', '),',','',' ','  ');
 								eventItem.description = eventItem.description.replace(/<br \/>/g,' ');
 								if(eventItem.signup == 1) eventItem.signup_openings = Math.floor(Math.random()*30);
+
 								var existing = Events.findOne({id: eventItem.id});
 								if(existing){
 									if(existing.lastupdated != eventItem.lastupdated){

@@ -26,7 +26,9 @@ Template.filter.helpers({
 			filters[this.kind] = this.value;
 		}
 		var count = Events.find(filters).count();
-		return (count === 0) ? 'disabled' : '';
+//		return (count === 0) ? 'disabled' : '';
+//	FIXME
+		return '';
 	},
 	hasParent: function(){
 		return (this.parent_id !== undefined) ? 'has-parent' : '';
