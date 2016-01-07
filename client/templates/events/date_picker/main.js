@@ -1,5 +1,5 @@
-Template.dates.helpers({
-	dates:function(){
+Template.datePickerMain.helpers({
+	days:function(){
 		var list = [];
 		for(var i=0; i<7; i++){
 			var item = {};
@@ -15,12 +15,12 @@ Template.dates.helpers({
 	}
 });
 
-Template.dates.events({
-	"click a": function(event){
+Template.datePickerMain.events({
+	"click .dates a": function(event){
 		event.preventDefault();
-		
+
 		Session.set('date', this.number);
-		
+
 		var filters = Session.get('filters') || {};
 		if(this.start !== undefined && this.end !== undefined){
 			filters.iso_end = {$gte: new Date(this.start), $lte: new Date(this.end)};
@@ -28,5 +28,10 @@ Template.dates.events({
 			delete filters.iso_end;
 		}
 		Session.set('filters',filters);
+	},
+
+	"click #datePickerMode button": function(event){
+
+		console.log(event);
 	}
 });

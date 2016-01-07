@@ -1,0 +1,20 @@
+<template name="datePickerMain">
+<!--
+	<div id="datePickerMode" class="btn-group">
+		Display as:
+		<button class="btn">Detail</button>
+		<button class="btn">List</button>
+		<button class="btn">Calendar</button>
+	</div>
+-->
+
+	<ul class="nav nav-tabs dates">
+		{{>datePickerDay name="Show All"}}
+		{{#each days}}
+			{{>datePickerDay}}
+		{{/each}}
+
+		{{>datePickerDay name="Month" display_number="JAN"}}
+		{{>datePickerDay name="Month" display_number="FEB"}}
+	</ul>
+</template>

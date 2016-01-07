@@ -11,3 +11,7 @@ if(Session.get('filters') === undefined){
 if(Session.get('viewQueue') === undefined){
 	Session.set('viewQueue',false);
 }
+
+if(Session.get('datePickerMode') === undefined){
+	Session.set('datePickerMode','week');
+}
