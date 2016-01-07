@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Printable table</title>
+	<meta name="description" content="CSS: Printable Table">
+	<meta charset="utf-8">
+	<style>
+		body{
+			max-width:800px;
+			margin:0 auto;
+		}
+
+		#events{
+			border:0;
+			font-size:18px;
+			font-family:Lato, Helvetica, Arial, sans-serif;
+		}
+
+		@media print{
+			#events{
+				font-size:10px;
+			}
+		}
+
+		#events .numeral{
+			font-size:200%;
+		}
+
+		#events a{
+			display:block;
+			text-decoration:none;
+			color:black;
+		}
+
+		#events a .title{
+			font-weight:600;
+			font-size:120%;
+		}
+
+		.calendar .day{
+			display:table-cell;
+			vertical-align:top;
+		}
+
+		.calendar .week{
+			display:table-row;
+			page-break-inside: avoid;
+		}
+
+		.calendar .numeral{
+			font-size:200%;
+			text-align: right;
+		}
+
+		.calendar .description{
+			display: none;
+		}
+
+		@media print {
+			.list{
+				-moz-column-width: 20em;
+				-moz-column-gap: 2em;
+			}
+		}
+
+		.list .day{
+			padding-bottom:1em;
+			margin-bottom:1em;
+			border-bottom: solid 1px black;
+			page-break-inside: avoid;
+		}
+
+		.list a{
+			margin-bottom:0.5em;
+		}
+
+		.list .time{ width:25%; }
+		.list .description{ width:75%; }
+		.list .info > *{ float:left; }
+		.list .info:after{
+			content:'';
+			display:block;
+			float:none;
+			clear:both;
+		}
+
+		.list .empty.day{
+			display:none;
+		}
+
+	</style>
+</head>
+<body>
+
+<a href="javascript:window.print()">Print</a>
+
+<select id="mode">
+	<option>list</option>
+	<option>calendar</option>
+</select>
+
+<div id="events" class="list">
+	<div class="week"></div>
+	<div class="week"></div>
+	<div class="week"></div>
+	<div class="week"></div>
+</div>
+
+<script type="text/javascript">
+function loremIpsum(words){
+	var lipsum = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus carborundum e pluribus unum. Defacto lingo est igpay atinlay. Marquee selectus non provisio incongruous feline nolo contendre. Gratuitous octopus niacin, sodium glutimate. Quote meon an estimate et non interruptus stadium. Sic tempus fugit esperanto hiccup estrogen. Glorious baklava ex librus hup hey ad infinitum. Non sequitur condominium facile et geranium incognito. Epsum factorial non deposit quid pro quo hic escorol. Marquee selectus non provisio incongruous feline nolo contendre Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus carborundum e pluribus unum. Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc., li tot Europa usa li sam vocabularium. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilit? de un nov lingua franca: on refusa continuar payar custosi traductores. It solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental: in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.".split(' ');
+	var start = Math.floor(Math.random() * lipsum.length);
+	return lipsum.slice(start,start+words).join(' ');
+}
+
+var date_time = new Date(Math.floor(Math.random()*1452003000000));
+
+function loremTimesum(){
+	var date = new Date(Math.floor(Math.random()*1452003000000));
+	//q.setTime(q.valueOf() + 86400000);
+	return date.toLocaleFormat('%I:%M %p');
+//	return date.toDateString();
+}
+
+var date = Math.floor(Math.random()*30);
+function getDay(){
+	date = ++date % 30;
+	//q.setTime(q.valueOf() + 86400000);
+	var day = [
+//		'<td>',
+			'<div class="day">',
+				'<div class="numeral">January '+(date+1)+'</div>',
+				'<div class="events"></div>',
+			'</div>'
+//		'</td>'
+	].join('');
+	return day;
+}
+
+var weeks = document.querySelectorAll('#events .week');
+for(var week in weeks){
+	var days = [];
+	for(var i=0; i<7; i++){
+		days.push(getDay());
+	}
+	weeks[week].innerHTML = days.join('');
+}
+
+//function generateEvents(){
+
+	var days = document.querySelectorAll('#events .day');
+	for(i=0; i<days.length; i++){
+		var empty = Math.random() < 0.2;
+		if(empty){
+			days[i].classList.add('empty');
+		}else{
+			var dayEvents = days[i].querySelector('.events');
+			var links = [];
+			var linkCount = 1 + Math.floor(Math.random()*5);
+			for(j=linkCount; j>0; j--){
+				var link = [
+					'<a href="#">',
+						'<div class="title">'+loremIpsum(4)+'</div>',
+						'<div class="info">',
+							'<div class="time">'+loremTimesum()+'</div>',
+							'<div class="description">'+loremIpsum(Math.floor(Math.random()*26)+4)+'</div>',
+						'</div>',
+					'</a>'
+				].join('');
+				links.push(link);
+			}
+			dayEvents.innerHTML = links.join('');
+		}
+	}
+//}
+
+var events_el = document.getElementById('events');
+var mode_el = document.getElementById('mode');
+mode_el.onchange = function(event){
+	events_el.attributes.class.value = event.target.value;
+	console.log(event.target.value);
+}
+
+</script>
+</body>
+</html>
