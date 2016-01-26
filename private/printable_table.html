@@ -37,19 +37,26 @@
 			font-size:120%;
 		}
 
-		.calendar .day{
-			display:table-cell;
-			vertical-align:top;
-		}
-
 		.calendar .week{
 			display:table-row;
 			page-break-inside: avoid;
+
+		}
+
+		.calendar .day{
+			display:table-cell;
+			vertical-align:top;
+			padding: 1em 0.25em;
+			min-width:7em;
+		}
+
+		.calendar .events a{
+			margin-bottom: 0.25em;
+			border-bottom: solid 1px black;
 		}
 
 		.calendar .numeral{
 			font-size:200%;
-			text-align: right;
 		}
 
 		.calendar .description{
@@ -95,7 +102,7 @@
 <a href="javascript:window.print()">Print</a>
 
 <select id="mode">
-	<option>list</option>
+	<option selected>list</option>
 	<option>calendar</option>
 </select>
 
@@ -118,22 +125,25 @@ var date_time = new Date(Math.floor(Math.random()*1452003000000));
 function loremTimesum(){
 	var date = new Date(Math.floor(Math.random()*1452003000000));
 	//q.setTime(q.valueOf() + 86400000);
+	console.log('date',date);
 	return date.toLocaleFormat('%I:%M %p');
+
 //	return date.toDateString();
 }
 
-var date = Math.floor(Math.random()*30);
+var date = new Date(Math.floor(Math.random()*1452003000000));
 function getDay(){
-	date = ++date % 30;
+//	date = ++date % 30;
 	//q.setTime(q.valueOf() + 86400000);
 	var day = [
 //		'<td>',
 			'<div class="day">',
-				'<div class="numeral">January '+(date+1)+'</div>',
+				'<div class="numeral">'+(date.toLocaleFormat('%b %e'))+'</div>',
 				'<div class="events"></div>',
 			'</div>'
 //		'</td>'
 	].join('');
+	date = new Date(date.getTime() + 86400000);
 	return day;
 }
 
@@ -156,7 +166,7 @@ for(var week in weeks){
 		}else{
 			var dayEvents = days[i].querySelector('.events');
 			var links = [];
-			var linkCount = 1 + Math.floor(Math.random()*5);
+			var linkCount = Math.floor(Math.random()*12);
 			for(j=linkCount; j>0; j--){
 				var link = [
 					'<a href="#">',
